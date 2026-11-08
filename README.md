@@ -45,3 +45,41 @@ Student's Data Structures and Algorithms (DSA) laboratory programs written in C.
 - `26_stack_implementation.c`: Array implementation of Stack (`push`, `pop`, `peek`, `display`, `isEmpty`, `isFull`)
 - `27_queue_implementation.c`: Array implementation of Linear Queue (`enqueue`, `dequeue`, `display`, `isEmpty`, `isFull`)
 - `28_circular_queue.c`: Array implementation of Circular Queue (`enqueue`, `dequeue`, `display`, `isEmpty`, `isFull`, modulo wrap-around)
+
+## 09. Singly Linked List (SLL)
+- `29_sll_node_structure.c`: Definition and memory demonstration of SLL node structure
+- `30_sll_creation_3_nodes.c`: Dynamic allocation and manual linking of 3 nodes
+- `31_sll_traversal.c`: Linear traversal and element display
+- `32_sll_insertion_beginning.c`: Node insertion at the beginning (new head)
+- `33_sll_insertion_end.c`: Node insertion at the end
+- `34_sll_deletion_beginning.c`: Deletion of the first node
+- `35_sll_deletion_end.c`: Deletion of the last node
+- `36_sll_insertion_middle.c`: Node insertion at a specific position (1-based index)
+- `37_sll_deletion_middle.c`: Node deletion from a specific position (1-based index)
+- `38_sll_searching.c`: Linear search for an element returning position
+- `39_sll_reverse_list.c`: Iterative 3-pointer reversal of Singly Linked List
+
+## 10. Circular Linked List (CLL)
+- `40_cll_node_structure.c`: Definition and self-pointing circular node structure
+- `41_cll_creation_3_nodes.c`: Creation and circular linking of 3 nodes
+- `42_cll_traversal.c`: Circular traversal using `do-while` loop
+- `43_cll_insertion_beginning.c`: Node insertion at the beginning and circular link maintenance
+- `44_cll_insertion_end.c`: Node insertion at the end
+- `45_cll_deletion_beginning.c`: Deletion of head node in circular list
+- `46_cll_deletion_end.c`: Deletion of last node and closing the circle
+- `47_cll_insertion_middle.c`: Insertion at a specific position in circular list
+- `48_cll_deletion_middle.c`: Deletion from a specific position in circular list
+- `49_cll_searching.c`: Circular linear search returning element position
+
+## 11. Doubly Linked List (DLL)
+- `50_dll_node_structure.c`: Bidirectional node structure with `prev` and `next` pointers
+- `51_dll_creation_3_nodes.c`: Creation and two-way manual linking of 3 nodes
+- `52_dll_traversal.c`: Both forward and backward traversals
+- `53_dll_insertion_beginning.c`: Insertion at the beginning with `prev` pointer update
+- `54_dll_insertion_end.c`: Insertion at the end with bidirectional linking
+- `55_dll_deletion_beginning.c`: Deletion of head node in doubly linked list
+- `56_dll_deletion_end.c`: Deletion of last node in doubly linked list
+- `57_dll_insertion_middle.c`: Insertion at a specific position with two-way pointer updates
+- `58_dll_deletion_middle.c`: Deletion from a specific position with neighbor pointer relinking
+- `59_dll_searching.c`: Linear search for an element in doubly linked list
+
