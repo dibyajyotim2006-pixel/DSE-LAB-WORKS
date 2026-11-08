@@ -1,26 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
- * Question: Deletion at the beginning of a Singly Linked List (SLL).
- */
-
 struct Node {
     int data;
     struct Node* next;
 };
 
-// Function to delete the first node of the list
 struct Node* deleteAtBeginning(struct Node* head) {
     if (head == NULL) {
         printf("Underflow! List is already empty.\n");
         return NULL;
     }
 
-    struct Node* temp = head; // Store head to free memory
-    head = head->next;        // Move head to next node
+    struct Node* temp = head;
+    head = head->next;
     printf("Deleted node with value %d from beginning.\n", temp->data);
-    free(temp);               // Free memory
+    free(temp);
 
     return head;
 }
@@ -72,7 +67,6 @@ int main() {
     printf("After 3rd deletion: ");
     displayList(head);
 
-    // Attempt deletion on empty list
     head = deleteAtBeginning(head);
 
     return 0;

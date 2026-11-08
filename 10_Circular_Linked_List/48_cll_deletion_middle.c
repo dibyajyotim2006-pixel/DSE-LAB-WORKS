@@ -1,16 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
- * Question: Deletion from the middle (at a given position) of a Circular Linked List (CLL).
- */
-
 struct Node {
     int data;
     struct Node* next;
 };
 
-// Function to delete node at a given position in CLL (1-based index)
 struct Node* deleteAtPosition(struct Node* head, int position) {
     if (head == NULL) {
         printf("Underflow! List is empty.\n");
@@ -22,7 +17,6 @@ struct Node* deleteAtPosition(struct Node* head, int position) {
         return head;
     }
 
-    // Case 1: Delete head node (position 1)
     if (position == 1) {
         if (head->next == head) {
             printf("Deleted node with value %d from position 1.\n", head->data);
@@ -41,7 +35,6 @@ struct Node* deleteAtPosition(struct Node* head, int position) {
         return head;
     }
 
-    // Case 2: Delete node at given position
     struct Node* current = head;
     for (int i = 1; i < position - 1; i++) {
         current = current->next;
@@ -104,17 +97,14 @@ int main() {
     printf("Initial list: ");
     displayCLL(head);
 
-    // Delete middle node at position 3 (value 30)
     printf("\nDeleting node at position 3:\n");
     head = deleteAtPosition(head, 3);
     printf("List after deletion: ");
     displayCLL(head);
 
-    // Delete at invalid position
     printf("\nDeleting node at position 10:\n");
     head = deleteAtPosition(head, 10);
 
-    // Clean up remaining nodes
     if (head != NULL) {
         struct Node* current = head;
         struct Node* nextNode;

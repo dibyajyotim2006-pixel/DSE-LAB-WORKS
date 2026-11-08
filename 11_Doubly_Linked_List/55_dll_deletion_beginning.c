@@ -1,17 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
- * Question: Deletion at the beginning of a Doubly Linked List (DLL).
- */
-
 struct Node {
     int data;
     struct Node* prev;
     struct Node* next;
 };
 
-// Function to delete the first node of DLL
 struct Node* deleteAtBeginning(struct Node* head) {
     if (head == NULL) {
         printf("Underflow! List is empty.\n");
@@ -19,9 +14,8 @@ struct Node* deleteAtBeginning(struct Node* head) {
     }
 
     struct Node* temp = head;
-    head = head->next; // Move head to next node
+    head = head->next;
 
-    // If list still has nodes, set new head's prev to NULL
     if (head != NULL) {
         head->prev = NULL;
     }

@@ -35,7 +35,7 @@ void Bubblesort(int arr[], int size) {
                 swap(&arr[j], &arr[j + 1]);
             }
         }
-        break; // Perform only 1 outer pass of Bubble Sort as per exam problem
+        break;
     }
 
     printf("after 1 pass : ");

@@ -1,16 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
- * Question: Traversal of a Circular Linked List (CLL) using a function.
- */
-
 struct Node {
     int data;
     struct Node* next;
 };
 
-// Function to traverse and print the circular linked list
 void traverseCLL(struct Node* head) {
     if (head == NULL) {
         printf("List is empty.\n");
@@ -45,7 +40,6 @@ struct Node* createNode(int data) {
 int main() {
     printf("--- Circular Linked List: Traversal ---\n");
 
-    // Create 4 nodes: 10 -> 20 -> 30 -> 40 -> (back to 10)
     struct Node* head = createNode(10);
     struct Node* second = createNode(20);
     struct Node* third = createNode(30);
@@ -54,12 +48,10 @@ int main() {
     head->next = second;
     second->next = third;
     third->next = fourth;
-    fourth->next = head; // Closing the circle
+    fourth->next = head;
 
-    // Traverse
     traverseCLL(head);
 
-    // Free memory
     free(head);
     free(second);
     free(third);

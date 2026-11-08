@@ -1,17 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
- * Question: Insertion at the beginning of a Doubly Linked List (DLL).
- */
-
 struct Node {
     int data;
     struct Node* prev;
     struct Node* next;
 };
 
-// Function to insert at the beginning of DLL
 struct Node* insertAtBeginning(struct Node* head, int value) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     if (newNode == NULL) {
@@ -22,12 +17,11 @@ struct Node* insertAtBeginning(struct Node* head, int value) {
     newNode->prev = NULL;
     newNode->next = head;
 
-    // If list is not empty, update old head's prev pointer
     if (head != NULL) {
         head->prev = newNode;
     }
 
-    head = newNode; // Update head
+    head = newNode;
     printf("Inserted %d at beginning.\n", value);
     return head;
 }
@@ -57,7 +51,6 @@ int main() {
     printf("\nAfter insertions:\n");
     displayDLL(head);
 
-    // Free memory
     struct Node* temp;
     while (head != NULL) {
         temp = head;

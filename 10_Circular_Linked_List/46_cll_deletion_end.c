@@ -1,37 +1,30 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
- * Question: Deletion at the end of a Circular Linked List (CLL).
- */
-
 struct Node {
     int data;
     struct Node* next;
 };
 
-// Function to delete the last node of a CLL
 struct Node* deleteAtEnd(struct Node* head) {
     if (head == NULL) {
         printf("Underflow! List is empty.\n");
         return NULL;
     }
 
-    // Case 1: Only one node in the list
     if (head->next == head) {
         printf("Deleted node with value %d (list is now empty).\n", head->data);
         free(head);
         return NULL;
     }
 
-    // Case 2: Traverse to find second-to-last node
     struct Node* current = head;
     while (current->next->next != head) {
         current = current->next;
     }
 
     struct Node* lastNode = current->next;
-    current->next = head; // Point second-to-last node back to head
+    current->next = head;
 
     printf("Deleted node with value %d from end.\n", lastNode->data);
     free(lastNode);

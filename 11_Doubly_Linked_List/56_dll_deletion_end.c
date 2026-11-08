@@ -1,37 +1,29 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
- * Question: Deletion at the end of a Doubly Linked List (DLL).
- */
-
 struct Node {
     int data;
     struct Node* prev;
     struct Node* next;
 };
 
-// Function to delete the last node of DLL
 struct Node* deleteAtEnd(struct Node* head) {
     if (head == NULL) {
         printf("Underflow! List is empty.\n");
         return NULL;
     }
 
-    // Case 1: Only one node in the list
     if (head->next == NULL) {
         printf("Deleted last node with value %d (list is now empty).\n", head->data);
         free(head);
         return NULL;
     }
 
-    // Case 2: Traverse to the last node
     struct Node* current = head;
     while (current->next != NULL) {
         current = current->next;
     }
 
-    // Disconnect last node
     current->prev->next = NULL;
     printf("Deleted last node with value %d.\n", current->data);
     free(current);

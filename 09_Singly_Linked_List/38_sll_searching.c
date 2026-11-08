@@ -1,28 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
- * Question: Searching for an element in a Singly Linked List (SLL).
- */
-
 struct Node {
     int data;
     struct Node* next;
 };
 
-// Function to search for a key in the list; returns 1-based position or -1 if not found
 int searchElement(struct Node* head, int key) {
     struct Node* current = head;
     int position = 1;
 
     while (current != NULL) {
         if (current->data == key) {
-            return position; // Found at this position
+            return position;
         }
         current = current->next;
         position++;
     }
-    return -1; // Not found
+    return -1;
 }
 
 struct Node* insertAtEnd(struct Node* head, int value) {
@@ -73,7 +68,6 @@ int main() {
         printf("Element %d not found in list.\n", target2);
     }
 
-    // Free memory
     struct Node* temp;
     while (head != NULL) {
         temp = head;

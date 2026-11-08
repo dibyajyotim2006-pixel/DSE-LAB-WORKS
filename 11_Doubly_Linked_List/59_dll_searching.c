@@ -1,29 +1,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
- * Question: Searching for an element in a Doubly Linked List (DLL).
- */
-
 struct Node {
     int data;
     struct Node* prev;
     struct Node* next;
 };
 
-// Function to search for an element in DLL; returns 1-based position or -1 if not found
 int searchDLL(struct Node* head, int key) {
     struct Node* current = head;
     int position = 1;
 
     while (current != NULL) {
         if (current->data == key) {
-            return position; // Key found
+            return position;
         }
         current = current->next;
         position++;
     }
-    return -1; // Not found
+    return -1;
 }
 
 struct Node* insertAtEnd(struct Node* head, int value) {
@@ -81,7 +76,6 @@ int main() {
         printf("Element %d not found in list.\n", target2);
     }
 
-    // Free memory
     struct Node* temp;
     while (head != NULL) {
         temp = head;

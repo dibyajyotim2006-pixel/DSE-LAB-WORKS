@@ -1,16 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
- * Question: Insertion in the middle (at a given position) of a Circular Linked List (CLL).
- */
-
 struct Node {
     int data;
     struct Node* next;
 };
 
-// Function to insert at a given position in CLL (1-based index)
 struct Node* insertAtPosition(struct Node* head, int value, int position) {
     if (position < 1) {
         printf("Invalid position: %d.\n", position);
@@ -24,7 +19,6 @@ struct Node* insertAtPosition(struct Node* head, int value, int position) {
     }
     newNode->data = value;
 
-    // Case 1: Inserting at position 1 (head)
     if (position == 1) {
         if (head == NULL) {
             newNode->next = newNode;
@@ -46,7 +40,6 @@ struct Node* insertAtPosition(struct Node* head, int value, int position) {
         return head;
     }
 
-    // Traverse to (position - 1)-th node
     struct Node* current = head;
     for (int i = 1; i < position - 1; i++) {
         current = current->next;
@@ -89,14 +82,12 @@ int main() {
     printf("\nInitial list: ");
     displayCLL(head);
 
-    // Insert 30 at position 3 (in the middle between 20 and 40)
     printf("\nInserting 30 at position 3:\n");
     head = insertAtPosition(head, 30, 3);
 
     printf("Updated list: ");
     displayCLL(head);
 
-    // Free memory
     if (head != NULL) {
         struct Node* current = head;
         struct Node* nextNode;

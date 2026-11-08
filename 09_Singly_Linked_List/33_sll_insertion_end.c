@@ -1,16 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
- * Question: Insertion at the end of a Singly Linked List (SLL).
- */
-
 struct Node {
     int data;
     struct Node* next;
 };
 
-// Function to insert a node at the end of the list
 struct Node* insertAtEnd(struct Node* head, int value) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     if (newNode == NULL) {
@@ -20,13 +15,11 @@ struct Node* insertAtEnd(struct Node* head, int value) {
     newNode->data = value;
     newNode->next = NULL;
 
-    // If list is empty, new node becomes the head
     if (head == NULL) {
         printf("Inserted %d as head node.\n", value);
         return newNode;
     }
 
-    // Traverse to the last node
     struct Node* current = head;
     while (current->next != NULL) {
         current = current->next;
@@ -59,7 +52,6 @@ int main() {
     printf("Resulting list: ");
     displayList(head);
 
-    // Free memory
     struct Node* temp;
     while (head != NULL) {
         temp = head;

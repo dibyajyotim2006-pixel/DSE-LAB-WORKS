@@ -1,29 +1,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
- * Question: Reversing a Singly Linked List (SLL) using the 3-pointer iterative method.
- */
-
 struct Node {
     int data;
     struct Node* next;
 };
 
-// Function to reverse the linked list iteratively
 struct Node* reverseList(struct Node* head) {
     struct Node* prev = NULL;
     struct Node* current = head;
     struct Node* next = NULL;
 
     while (current != NULL) {
-        next = current->next; // Store next node
-        current->next = prev; // Reverse the link
-        prev = current;       // Move prev forward
-        current = next;       // Move current forward
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
     }
 
-    head = prev; // New head of reversed list
+    head = prev;
     return head;
 }
 
@@ -69,7 +64,6 @@ int main() {
     printf("Reversed List : ");
     displayList(head);
 
-    // Free memory
     struct Node* temp;
     while (head != NULL) {
         temp = head;

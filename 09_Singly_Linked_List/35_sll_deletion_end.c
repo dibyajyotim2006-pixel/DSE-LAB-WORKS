@@ -1,38 +1,31 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
- * Question: Deletion at the end of a Singly Linked List (SLL).
- */
-
 struct Node {
     int data;
     struct Node* next;
 };
 
-// Function to delete the last node of the list
 struct Node* deleteAtEnd(struct Node* head) {
     if (head == NULL) {
         printf("Underflow! List is already empty.\n");
         return NULL;
     }
 
-    // Case 1: Only one node in the list
     if (head->next == NULL) {
         printf("Deleted last node with value %d.\n", head->data);
         free(head);
         return NULL;
     }
 
-    // Case 2: More than one node - traverse to the second-to-last node
     struct Node* current = head;
     while (current->next->next != NULL) {
         current = current->next;
     }
 
     printf("Deleted last node with value %d.\n", current->next->data);
-    free(current->next); // Free the last node
-    current->next = NULL; // Update second-to-last node's next to NULL
+    free(current->next);
+    current->next = NULL;
 
     return head;
 }

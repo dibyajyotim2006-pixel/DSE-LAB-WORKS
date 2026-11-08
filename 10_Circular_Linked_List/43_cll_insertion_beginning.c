@@ -1,16 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
- * Question: Insertion at the beginning of a Circular Linked List (CLL).
- */
-
 struct Node {
     int data;
     struct Node* next;
 };
 
-// Function to insert a node at the beginning of CLL
 struct Node* insertAtBeginning(struct Node* head, int value) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     if (newNode == NULL) {
@@ -19,23 +14,20 @@ struct Node* insertAtBeginning(struct Node* head, int value) {
     }
     newNode->data = value;
 
-    // Case 1: Empty list
     if (head == NULL) {
-        newNode->next = newNode; // Points to itself
+        newNode->next = newNode;
         printf("Inserted %d as head node.\n", value);
         return newNode;
     }
 
-    // Case 2: Non-empty list - find the last node
     struct Node* last = head;
     while (last->next != head) {
         last = last->next;
     }
 
-    // Link new node
     newNode->next = head;
     last->next = newNode;
-    head = newNode; // Update head
+    head = newNode;
 
     printf("Inserted %d at beginning.\n", value);
     return head;
@@ -69,7 +61,6 @@ int main() {
     printf("List after insertions: ");
     displayCLL(head);
 
-    // Free memory
     if (head != NULL) {
         struct Node* current = head;
         struct Node* nextNode;

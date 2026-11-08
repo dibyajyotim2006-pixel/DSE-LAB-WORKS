@@ -1,16 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
- * Question: Searching for an element in a Circular Linked List (CLL).
- */
-
 struct Node {
     int data;
     struct Node* next;
 };
 
-// Function to search for an element in CLL; returns 1-based position or -1 if not found
 int searchCLL(struct Node* head, int key) {
     if (head == NULL) {
         return -1;
@@ -21,13 +16,13 @@ int searchCLL(struct Node* head, int key) {
 
     do {
         if (current->data == key) {
-            return position; // Key found
+            return position;
         }
         current = current->next;
         position++;
     } while (current != head);
 
-    return -1; // Not found in entire circle
+    return -1;
 }
 
 struct Node* insertAtEnd(struct Node* head, int value) {
@@ -85,7 +80,6 @@ int main() {
         printf("Element %d not found in list.\n", target2);
     }
 
-    // Free memory
     if (head != NULL) {
         struct Node* current = head;
         struct Node* nextNode;

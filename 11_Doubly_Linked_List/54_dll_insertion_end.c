@@ -1,17 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
- * Question: Insertion at the end of a Doubly Linked List (DLL).
- */
-
 struct Node {
     int data;
     struct Node* prev;
     struct Node* next;
 };
 
-// Function to insert at the end of DLL
 struct Node* insertAtEnd(struct Node* head, int value) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     if (newNode == NULL) {
@@ -21,14 +16,12 @@ struct Node* insertAtEnd(struct Node* head, int value) {
     newNode->data = value;
     newNode->next = NULL;
 
-    // Case 1: Empty list
     if (head == NULL) {
         newNode->prev = NULL;
         printf("Inserted %d as head node.\n", value);
         return newNode;
     }
 
-    // Case 2: Non-empty list - traverse to the last node
     struct Node* current = head;
     while (current->next != NULL) {
         current = current->next;
@@ -64,7 +57,6 @@ int main() {
     printf("\nResulting list:\n");
     displayDLL(head);
 
-    // Free memory
     struct Node* temp;
     while (head != NULL) {
         temp = head;

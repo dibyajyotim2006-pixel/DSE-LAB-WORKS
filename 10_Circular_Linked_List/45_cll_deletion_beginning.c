@@ -1,38 +1,31 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
- * Question: Deletion at the beginning of a Circular Linked List (CLL).
- */
-
 struct Node {
     int data;
     struct Node* next;
 };
 
-// Function to delete the first node of a CLL
 struct Node* deleteAtBeginning(struct Node* head) {
     if (head == NULL) {
         printf("Underflow! List is empty.\n");
         return NULL;
     }
 
-    // Case 1: Only one node in the list
     if (head->next == head) {
         printf("Deleted node with value %d (list is now empty).\n", head->data);
         free(head);
         return NULL;
     }
 
-    // Case 2: More than one node - find last node
     struct Node* last = head;
     while (last->next != head) {
         last = last->next;
     }
 
     struct Node* temp = head;
-    last->next = head->next; // Last node points to the second node
-    head = head->next;       // Update head
+    last->next = head->next;
+    head = head->next;
 
     printf("Deleted node with value %d from beginning.\n", temp->data);
     free(temp);

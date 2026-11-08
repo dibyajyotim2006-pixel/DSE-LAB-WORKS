@@ -1,17 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
- * Question: Traversal of a Doubly Linked List (DLL) in both forward and backward directions.
- */
-
 struct Node {
     int data;
     struct Node* prev;
     struct Node* next;
 };
 
-// Function to traverse DLL forward
 void traverseForward(struct Node* head) {
     if (head == NULL) {
         printf("List is empty.\n");
@@ -26,13 +21,12 @@ void traverseForward(struct Node* head) {
     printf("NULL\n");
 }
 
-// Function to traverse DLL backward from the tail node
 void traverseBackward(struct Node* head) {
     if (head == NULL) {
         printf("List is empty.\n");
         return;
     }
-    // Traverse to the last node
+
     struct Node* tail = head;
     while (tail->next != NULL) {
         tail = tail->next;
@@ -61,7 +55,6 @@ struct Node* createNode(int data) {
 int main() {
     printf("--- Doubly Linked List: Traversal ---\n");
 
-    // Creating sample DLL: 10 <-> 20 <-> 30 <-> 40
     struct Node* n1 = createNode(10);
     struct Node* n2 = createNode(20);
     struct Node* n3 = createNode(30);
@@ -81,7 +74,6 @@ int main() {
     traverseForward(head);
     traverseBackward(head);
 
-    // Free memory
     struct Node* temp;
     while (head != NULL) {
         temp = head;

@@ -1,17 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
- * Question: Deletion from the middle (at a given position) of a Doubly Linked List (DLL).
- */
-
 struct Node {
     int data;
     struct Node* prev;
     struct Node* next;
 };
 
-// Function to delete node at a given position in DLL (1-based index)
 struct Node* deleteAtPosition(struct Node* head, int position) {
     if (head == NULL) {
         printf("Underflow! List is empty.\n");
@@ -23,7 +18,6 @@ struct Node* deleteAtPosition(struct Node* head, int position) {
         return head;
     }
 
-    // Case 1: Delete head node (position 1)
     if (position == 1) {
         struct Node* temp = head;
         head = head->next;
@@ -35,7 +29,6 @@ struct Node* deleteAtPosition(struct Node* head, int position) {
         return head;
     }
 
-    // Case 2: Traverse to the node at `position`
     struct Node* current = head;
     for (int i = 1; i < position && current != NULL; i++) {
         current = current->next;
@@ -46,7 +39,6 @@ struct Node* deleteAtPosition(struct Node* head, int position) {
         return head;
     }
 
-    // Unlink current node
     current->prev->next = current->next;
     if (current->next != NULL) {
         current->next->prev = current->prev;
@@ -98,17 +90,14 @@ int main() {
     printf("Initial list:\n");
     displayDLL(head);
 
-    // Delete middle node at position 3 (value 30)
     printf("\nDeleting node at position 3:\n");
     head = deleteAtPosition(head, 3);
     printf("List after deletion:\n");
     displayDLL(head);
 
-    // Delete invalid position
     printf("\nDeleting node at position 10:\n");
     head = deleteAtPosition(head, 10);
 
-    // Free remaining memory
     struct Node* temp;
     while (head != NULL) {
         temp = head;
